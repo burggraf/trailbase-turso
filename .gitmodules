@@ -1,0 +1,6 @@
+[submodule "upstream/trailbase"]
+	path = upstream/trailbase
+	url = https://github.com/trailbaseio/trailbase.git
+[submodule "upstream/turso"]
+	path = upstream/turso
+	url = https://github.com/tursodatabase/turso.git
