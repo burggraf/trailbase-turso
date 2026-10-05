@@ -1,0 +1,89 @@
+{
+  "cargo_config": "# Use mold linker. Found not to make a big difference for build times.\n# Link time is minuscule compared to code-generation.\n#\n# [target.x86_64-unknown-linux-gnu]\n# linker = \"clang\"\n# rustflags = [\"-C\", \"link-arg=-fuse-ld=/usr/bin/mold\"]\n\n# Build static binary by default. We specify this explicitly as part of the\n# Docker (see Dockerfile) and Github (see workflows) release flows.\n# Static binaries are really only a Linux thing with other OSs lacking a stable\n# syscall API.\n#\n# rustflags = [\"-C\", \"target-feature=+crt-static\"]\n\n[env]\nTS_RS_EXPORT_DIR = { value = \"./crates/assets/js/bindings/src\", relative = true }\n",
+  "database_dependency_declarations": {
+    "geos": {
+      "default-features": false,
+      "features": [
+        "geo",
+        "json"
+      ],
+      "version": "11.3.1"
+    },
+    "litegis": {
+      "default-features": false,
+      "version": "0.0.7"
+    },
+    "rusqlite": {
+      "default-features": false,
+      "features": [
+        "bundled",
+        "cache",
+        "column_decltype",
+        "functions",
+        "backup",
+        "preupdate_hook"
+      ],
+      "version": "0.40.2"
+    },
+    "sqlite-vec": {
+      "branch": "v0.1.10-alpha.4-fork",
+      "default-features": false,
+      "git": "https://github.com/ignatz/sqlite-vec"
+    },
+    "sqlite3-parser": "0.17.0",
+    "trailbase": {
+      "default-features": false,
+      "features": [
+        "wasm",
+        "pg"
+      ],
+      "path": "crates/core",
+      "version": "0.2.0"
+    },
+    "trailbase-sqlite": {
+      "default-features": false,
+      "path": "crates/sqlite",
+      "version": "0.3.0"
+    }
+  },
+  "feature_resolution_proof": "See features.stdout; declarations are not a resolved feature graph.",
+  "inherited_configuration_names": [],
+  "lock_sha256_before": "9c41c3b80f912fdaea3ecfd4eb44f4bcf2b25213c67839eef06eae2a88379fb9",
+  "machine": "arm64",
+  "overrides": {
+    "CARGO_TARGET_DIR": "/Users/markb/dev/trailbase-turso/artifacts/baseline-target",
+    "PNPM_OFFLINE": "TRUE",
+    "RUSTUP_AUTO_INSTALL": "0",
+    "RUST_BACKTRACE": "1"
+  },
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "tool_paths": {
+    "cargo": "/Users/markb/.cargo/bin/cargo",
+    "cc": "/usr/bin/cc",
+    "clang": "/usr/bin/clang",
+    "geos-config": "/opt/homebrew/bin/geos-config",
+    "ld": "/usr/bin/ld",
+    "node": "/opt/homebrew/bin/node",
+    "pkg-config": "/opt/homebrew/bin/pkg-config",
+    "pnpm": "/opt/homebrew/bin/pnpm",
+    "protoc": "/opt/homebrew/bin/protoc",
+    "rustc": "/Users/markb/.cargo/bin/rustc",
+    "rustup": "/Users/markb/.cargo/bin/rustup"
+  },
+  "toolchain_argument": "1.95.0",
+  "upstream_ci_toolchain": "1.98.1",
+  "workspace_default_members": [
+    "crates/assets",
+    "crates/cli",
+    "crates/client",
+    "crates/core",
+    "crates/extension",
+    "crates/qs",
+    "crates/schema",
+    "crates/sqlite",
+    "crates/wasm-runtime-axum",
+    "crates/wasm-runtime-common",
+    "crates/wasm-runtime-host"
+  ]
+}

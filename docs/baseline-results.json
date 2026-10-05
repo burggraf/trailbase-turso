@@ -1,0 +1,152 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "cargo",
+        "+1.95.0",
+        "tree",
+        "--locked",
+        "-e",
+        "features",
+        "-i",
+        "rusqlite"
+      ],
+      "cwd": "/Users/markb/dev/trailbase-turso/upstream/trailbase",
+      "duration_seconds": 8.48,
+      "exit_code": 0,
+      "name": "features",
+      "returncode": 0,
+      "started_utc": "2026-10-05T22:58:26.287872+00:00",
+      "stderr": "features.stderr",
+      "stdout": "features.stdout",
+      "test_counts": null,
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "cargo",
+        "+1.95.0",
+        "build",
+        "--locked",
+        "--all-features"
+      ],
+      "cwd": "/Users/markb/dev/trailbase-turso/upstream/trailbase",
+      "duration_seconds": 580.344,
+      "exit_code": 101,
+      "name": "build-all-features",
+      "returncode": 101,
+      "started_utc": "2026-10-05T22:58:34.768649+00:00",
+      "stderr": "build-all-features.stderr",
+      "stdout": "build-all-features.stdout",
+      "test_counts": null,
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "cargo",
+        "+1.95.0",
+        "build",
+        "--locked",
+        "--all-targets",
+        "--no-default-features"
+      ],
+      "cwd": "/Users/markb/dev/trailbase-turso/upstream/trailbase",
+      "duration_seconds": 540.13,
+      "exit_code": 101,
+      "name": "build-no-default-features",
+      "returncode": 101,
+      "started_utc": "2026-10-05T23:08:15.105301+00:00",
+      "stderr": "build-no-default-features.stderr",
+      "stdout": "build-no-default-features.stdout",
+      "test_counts": null,
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "cargo",
+        "+1.95.0",
+        "test",
+        "--locked",
+        "--",
+        "--nocapture"
+      ],
+      "cwd": "/Users/markb/dev/trailbase-turso/upstream/trailbase",
+      "duration_seconds": 245.519,
+      "exit_code": 101,
+      "name": "test-default",
+      "returncode": 101,
+      "started_utc": "2026-10-05T23:17:15.265713+00:00",
+      "stderr": "test-default.stderr",
+      "stdout": "test-default.stdout",
+      "test_counts": null,
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "cargo",
+        "+1.95.0",
+        "test",
+        "--locked",
+        "--workspace",
+        "--features=geos,otel,pg,wasm",
+        "--",
+        "--nocapture"
+      ],
+      "cwd": "/Users/markb/dev/trailbase-turso/upstream/trailbase",
+      "duration_seconds": 216.151,
+      "exit_code": 101,
+      "name": "test-workspace",
+      "returncode": 101,
+      "started_utc": "2026-10-05T23:21:20.785396+00:00",
+      "stderr": "test-workspace.stderr",
+      "stdout": "test-workspace.stdout",
+      "test_counts": null,
+      "timeout_seconds": 600
+    }
+  ],
+  "exit_code": 101,
+  "lock_sha256_after": "9c41c3b80f912fdaea3ecfd4eb44f4bcf2b25213c67839eef06eae2a88379fb9",
+  "run_dir": "/Users/markb/dev/trailbase-turso/artifacts/baseline/20261005T225822Z-0yca3754",
+  "schema_version": 1,
+  "sources_after": {
+    "trailbase": {
+      "actual_pin": "12d3343d7d78c8e4dd65af264a3244f472de450d",
+      "expected_pin": "12d3343d7d78c8e4dd65af264a3244f472de450d",
+      "ok": true,
+      "path": "/Users/markb/dev/trailbase-turso/upstream/trailbase",
+      "problems": [],
+      "status": "",
+      "submodules": " deac51f04b37e2d01b83e403fd22e4fa5acba800 vendor/rmcp-openapi-minimal (heads/main)\n d0006d774bc8f0f8bee3b3be8353f7299088adbd vendor/sqlite-vec (remotes/origin/v0.1.10-alpha.4-fork)\n"
+    },
+    "turso": {
+      "actual_pin": "e6c79b43cabde627ab9eb4eaa20c2d3e6d384d7c",
+      "expected_pin": "e6c79b43cabde627ab9eb4eaa20c2d3e6d384d7c",
+      "ok": true,
+      "path": "/Users/markb/dev/trailbase-turso/upstream/turso",
+      "problems": [],
+      "status": "",
+      "submodules": ""
+    }
+  },
+  "sources_before": {
+    "trailbase": {
+      "actual_pin": "12d3343d7d78c8e4dd65af264a3244f472de450d",
+      "expected_pin": "12d3343d7d78c8e4dd65af264a3244f472de450d",
+      "ok": true,
+      "path": "/Users/markb/dev/trailbase-turso/upstream/trailbase",
+      "problems": [],
+      "status": "",
+      "submodules": " deac51f04b37e2d01b83e403fd22e4fa5acba800 vendor/rmcp-openapi-minimal (heads/main)\n d0006d774bc8f0f8bee3b3be8353f7299088adbd vendor/sqlite-vec (remotes/origin/v0.1.10-alpha.4-fork)\n"
+    },
+    "turso": {
+      "actual_pin": "e6c79b43cabde627ab9eb4eaa20c2d3e6d384d7c",
+      "expected_pin": "e6c79b43cabde627ab9eb4eaa20c2d3e6d384d7c",
+      "ok": true,
+      "path": "/Users/markb/dev/trailbase-turso/upstream/turso",
+      "problems": [],
+      "status": "",
+      "submodules": ""
+    }
+  },
+  "status": "blocked-or-failed"
+}

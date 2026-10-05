@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "blocked",
+  "exit_code": 1,
+  "scope": "Standalone C subset/API/backup fixtures; not a TrailBase substitution or application test run",
+  "source_pins": {
+    "trailbase": "12d3343d7d78c8e4dd65af264a3244f472de450d",
+    "turso": "e6c79b43cabde627ab9eb4eaa20c2d3e6d384d7c"
+  },
+  "source_validation": {
+    "clean_before_and_after": true,
+    "nested_submodules_ready": true,
+    "turso_cargo_lock_sha256_before_and_after": "22064ea8ce73a69c3692861cf81d1b4263c0e6b1c351a87f8f84974cd9202639"
+  },
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "build_toolchain": "1.95.0",
+    "default_isolated_build_executed_in_this_worktree": false,
+    "linux_execution_verified": false
+  },
+  "library": {
+    "path": "/Users/markb/dev/trailbase-turso/artifacts/turso-target/debug/libturso_sqlite3.dylib",
+    "sha256_before_and_after": "9c9bd5843977cb4131d5c747a466f2396645b1d9e6d32a2ac31dd3b352d0dddf",
+    "build_record": "/Users/markb/dev/trailbase-turso/artifacts/turso-build/20261005T231039Z-mltygr47/command.json",
+    "build_exit_code": 0,
+    "selection": "explicit supplied real dylib; no SQLite fallback",
+    "verification": [
+      "Absolute selected dylib in Turso C link argv; no -lsqlite3",
+      "otool dependencies: selected dylib and libSystem only in fixture binaries; no libsqlite3 in selected Turso image",
+      "Generated executable install-name adjusted to exact selected path; input library unmodified",
+      "dladdr(sqlite3_open) and realpath check identify exact selected runtime image",
+      "nm -gU exports open and backup_init; no auto_extension or preupdate_hook"
+    ]
+  },
+  "raw_artifacts": {
+    "comparison_run": "/Users/markb/dev/trailbase-turso/artifacts/compatibility/20261005T232534Z-twy5oee0",
+    "comparison_result": "/Users/markb/dev/trailbase-turso/artifacts/compatibility/20261005T232534Z-twy5oee0/result.json",
+    "initial_environment_error_run": "/Users/markb/dev/trailbase-turso/artifacts/compatibility/20261005T232414Z-4gsii84o",
+    "tooling_tests_run": "/Users/markb/dev/trailbase-turso/artifacts/compatibility/20261005T232633Z-y5duwkqh",
+    "retention": "Generated raw command JSON/stdout/stderr and run input snapshots stored outside worktree; not tracked"
+  },
+  "fixtures": [
+    {
+      "name": "subset",
+      "system_sqlite": {"classification": "passed", "returncode": 0, "exit_code": 0},
+      "turso": {"classification": "passed", "returncode": 0, "exit_code": 0},
+      "differential_equal": true,
+      "assertions": "Bound/read NULL, integer 9007199254740993, real 1.25, UTF-8 text, blob 0001ff; commit visible after reopen; rollback restores update and removes inserted second row",
+      "raw_file_stems": ["sqlite-subset-link", "sqlite-subset-run", "turso-subset-link", "turso-subset-run", "turso-subset-dependencies"],
+      "does_not_prove": "TrailBase behavior, crash durability, concurrency or broad SQL compatibility"
+    },
+    {
+      "name": "required_api",
+      "system_sqlite": {"classification": "linked", "returncode": 0, "exit_code": 0, "executed": false},
+      "turso": {"classification": "missing-required-api", "returncode": 1, "exit_code": 1, "executed": false},
+      "missing_symbols": ["sqlite3_auto_extension", "sqlite3_preupdate_hook"],
+      "severity": "blocker",
+      "raw_file_stems": ["sqlite-required_api-link", "turso-required_api-link", "turso-exports"]
+    },
+    {
+      "name": "backup",
+      "system_sqlite": {"classification": "passed", "returncode": 0, "exit_code": 0, "copied_value": 42},
+      "turso": {"classification": "panic-abort-backup-stub", "link_exit_code": 0, "returncode": -6, "exit_code": 134, "signal": "SIGABRT", "reached": "sqlite3_backup_init"},
+      "panic_source": "bindings/c/src/lib.rs:1984:5",
+      "severity": "blocker",
+      "raw_file_stems": ["sqlite-backup-link", "sqlite-backup-run", "turso-backup-link", "turso-backup-run", "turso-backup-dependencies"]
+    }
+  ],
+  "unchanged_trailbase_tests": {
+    "sqlite_baseline": "baseline-pending-unverified",
+    "turso": "not-attempted-api-gate-blocked",
+    "workflows_unverified": ["migrations", "auth", "record CRUD", "admin", "realtime", "vector extension", "application backup/restore", "crash/restart", "concurrency", "PRAGMA and custom UDF/security flags"],
+    "note": "System SQLite standalone controls are not the bundled rusqlite TrailBase baseline"
+  },
+  "initial_run": {
+    "status": "tool-or-environment-error",
+    "exit_code": 2,
+    "system_control_returncode": 90,
+    "cause": "Harness incorrectly required macOS shared-cache system SQLite image to exist on disk",
+    "resolution": "Allow shared-cache system identity; retain mandatory exact on-disk Turso identity",
+    "engine_incompatibility": false
+  },
+  "tooling_tests": {
+    "command": "PYTHONPATH=/Users/markb/dev/trailbase-turso/scripts python3 -m unittest discover -s tests/tooling -p test_compatibility.py",
+    "passed": 8,
+    "failed": 0,
+    "exit_code": 0,
+    "coverage": ["specific missing symbols vs tool errors", "panic SIGABRT vs generic runtime errors", "exclusive linkage and exact Linux path rejection", "blocked vs tool/unexplained status", "loader override removal", "explicit locked isolated build argv", "capture raw streams and return codes", "postflight error overrides earlier blocker exit"],
+    "evidence_version_note": "Comparison run snapshots precede only the Linux path-parser tightening; final parser is unit-tested, Darwin execution branch unchanged"
+  },
+  "recommendation": "Stop Route A unchanged; any upstream repair, narrow adapter or native Route C estimate requires a separate scoped decision",
+  "residual_risks": [
+    "No substituted rusqlite/libsqlite3-sys build or complete required-symbol inventory",
+    "No unchanged TrailBase application baseline or Turso application tests in this spike",
+    "No migration, PRAGMA, UDF/security, vector or realtime parity proof",
+    "No application backup consistency, crash recovery or concurrency proof",
+    "Default isolated build configuration unit-tested but not rebuilt here; supplied build evidence referenced",
+    "Linux runtime unverified; exact-path parser tested only",
+    "Arbitrary supplied dylib provenance cannot be established by filename/hash alone",
+    "No Turso Cloud durability, hydration or fencing guarantees"
+  ]
+}
