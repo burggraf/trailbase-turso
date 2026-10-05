@@ -1,0 +1,8 @@
+.DS_Store
+.pi/
+artifacts/
+/target/
+__pycache__/
+*.pyc
+.env
+.env.*
