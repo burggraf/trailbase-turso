@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "scripts/run-native-security.sh"
+  ],
+  "cwd": "/Users/markb/dev/trailbase-turso",
+  "duration_seconds": 14.97,
+  "exit_code": 1,
+  "returncode": 1,
+  "started_utc": "2026-10-06T13:35:10.246036+00:00",
+  "stderr": "command.stderr",
+  "stdout": "command.stdout",
+  "test_counts": null,
+  "timeout_seconds": null
+}

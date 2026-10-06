@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "setting_sql": "PRAGMA trusted_schema=OFF",
+  "readback_sql": "PRAGMA trusted_schema",
+  "positive_sql": "SELECT marker(1)",
+  "security": {
+    "top": ["SELECT marker(1)"],
+    "check": ["CREATE TABLE t(x INTEGER CHECK(marker(x)=1))", "INSERT INTO t VALUES(1)"],
+    "default": ["CREATE TABLE t(x INTEGER DEFAULT (marker(1)))", "INSERT INTO t DEFAULT VALUES"],
+    "generated": ["CREATE TABLE t(x INTEGER, y INTEGER GENERATED ALWAYS AS (marker(x)) STORED)", "INSERT INTO t(x) VALUES(1)"],
+    "index": ["CREATE TABLE t(x INTEGER)", "INSERT INTO t VALUES(1)", "CREATE INDEX i ON t(marker(x))"],
+    "view": ["CREATE VIEW v AS SELECT marker(1) AS x", "SELECT * FROM v"],
+    "trigger": ["CREATE TABLE t(x INTEGER)", "CREATE TRIGGER tr AFTER INSERT ON t BEGIN SELECT marker(new.x); END", "INSERT INTO t VALUES(1)"],
+    "stored-view": ["CREATE VIEW v AS SELECT marker(1) AS x", "SELECT * FROM v", "SELECT * FROM v"]
+  },
+  "bridge": [
+    {"sql": "SELECT echo_probe(NULL)", "rows": [[null]]},
+    {"sql": "SELECT echo_probe(-7)", "rows": [[-7]]},
+    {"sql": "SELECT echo_probe(1.25)", "rows": [[1.25]]},
+    {"sql": "SELECT echo_probe('hi')", "rows": [["hi"]]},
+    {"sql": "SELECT echo_probe(x'00ff')", "rows": [[{"blob": [0, 255]}]]},
+    {"sql": "SELECT echo_probe('__error__')", "error": "probe callback error"}
+  ],
+  "overload": {
+    "before": "SELECT jsonschema('probe-schema','{}')",
+    "after2": "SELECT jsonschema('probe-schema','{}')",
+    "after3": "SELECT jsonschema('probe-schema','{}','extra')"
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "blockers": [
+    "native-schema-execution-gap:check",
+    "native-schema-execution-gap:default",
+    "native-schema-execution-gap:view",
+    "native-schema-execution-gap:trigger",
+    "native-schema-execution-gap:stored-view",
+    "native-arity-overwrite",
+    "native-security-flags-unavailable"
+  ],
+  "exit_code": 1,
+  "inputs_unchanged": true,
+  "missing": [
+    "native-sql-rejected:generated",
+    "native-sql-rejected:index"
+  ],
+  "rows": [
+    {
+      "calls": 1,
+      "classification": "allowed-control",
+      "context": "top",
+      "engine": "sqlite",
+      "flag": "innocuous",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 1,
+      "classification": "allowed-control",
+      "context": "check",
+      "engine": "sqlite",
+      "flag": "innocuous",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 1,
+      "classification": "allowed-control",
+      "context": "default",
+      "engine": "sqlite",
+      "flag": "innocuous",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 1,
+      "classification": "allowed-control",
+      "context": "generated",
+      "engine": "sqlite",
+      "flag": "innocuous",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 1,
+      "classification": "allowed-control",
+      "context": "index",
+      "engine": "sqlite",
+      "flag": "innocuous",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 1,
+      "classification": "allowed-control",
+      "context": "view",
+      "engine": "sqlite",
+      "flag": "innocuous",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 1,
+      "classification": "allowed-control",
+      "context": "trigger",
+      "engine": "sqlite",
+      "flag": "innocuous",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 2,
+      "classification": "allowed-control",
+      "context": "stored-view",
+      "engine": "sqlite",
+      "flag": "innocuous",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 1,
+      "classification": "allowed-control",
+      "context": "top",
+      "engine": "sqlite",
+      "flag": "ordinary",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "check",
+      "engine": "sqlite",
+      "flag": "ordinary",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "default",
+      "engine": "sqlite",
+      "flag": "ordinary",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "generated",
+      "engine": "sqlite",
+      "flag": "ordinary",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "index",
+      "engine": "sqlite",
+      "flag": "ordinary",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "view",
+      "engine": "sqlite",
+      "flag": "ordinary",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "trigger",
+      "engine": "sqlite",
+      "flag": "ordinary",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "stored-view",
+      "engine": "sqlite",
+      "flag": "ordinary",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 1,
+      "classification": "allowed-control",
+      "context": "top",
+      "engine": "sqlite",
+      "flag": "direct-only",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "check",
+      "engine": "sqlite",
+      "flag": "direct-only",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "default",
+      "engine": "sqlite",
+      "flag": "direct-only",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "generated",
+      "engine": "sqlite",
+      "flag": "direct-only",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "index",
+      "engine": "sqlite",
+      "flag": "direct-only",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "view",
+      "engine": "sqlite",
+      "flag": "direct-only",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "trigger",
+      "engine": "sqlite",
+      "flag": "direct-only",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 0,
+      "classification": "denied-zero-calls-control",
+      "context": "stored-view",
+      "engine": "sqlite",
+      "flag": "direct-only",
+      "trusted_schema_readback": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "calls": 1,
+      "classification": "native-top-level-call",
+      "context": "top",
+      "engine": "native",
+      "flag": "ordinary",
+      "trusted_schema_readback": []
+    },
+    {
+      "calls": 1,
+      "classification": "schema-callback-executed",
+      "context": "check",
+      "engine": "native",
+      "flag": "ordinary",
+      "trusted_schema_readback": []
+    },
+    {
+      "calls": 1,
+      "classification": "schema-callback-executed",
+      "context": "default",
+      "engine": "native",
+      "flag": "ordinary",
+      "trusted_schema_readback": []
+    },
+    {
+      "calls": 0,
+      "classification": "sql-rejected-not-security-proof",
+      "context": "generated",
+      "engine": "native",
+      "flag": "ordinary",
+      "trusted_schema_readback": []
+    },
+    {
+      "calls": 0,
+      "classification": "sql-rejected-not-security-proof",
+      "context": "index",
+      "engine": "native",
+      "flag": "ordinary",
+      "trusted_schema_readback": []
+    },
+    {
+      "calls": 1,
+      "classification": "schema-callback-executed",
+      "context": "view",
+      "engine": "native",
+      "flag": "ordinary",
+      "trusted_schema_readback": []
+    },
+    {
+      "calls": 1,
+      "classification": "schema-callback-executed",
+      "context": "trigger",
+      "engine": "native",
+      "flag": "ordinary",
+      "trusted_schema_readback": []
+    },
+    {
+      "calls": 2,
+      "classification": "schema-callback-executed",
+      "context": "stored-view",
+      "engine": "native",
+      "flag": "ordinary",
+      "trusted_schema_readback": []
+    }
+  ],
+  "run_dir": "/Users/markb/dev/trailbase-turso/artifacts/native-security/20261006T133510Z-glt7whqz",
+  "schema_version": 1,
+  "status": "blocked"
+}

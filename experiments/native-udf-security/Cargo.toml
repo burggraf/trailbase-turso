@@ -1,0 +1,16 @@
+[package]
+name = "native-udf-security"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+turso_sdk_kit = { path = "../../upstream/turso/sdk-kit", default-features = false }
+turso_ext = { path = "../../upstream/turso/extensions/core", features = ["core_only"] }
+rusqlite = { version = "=0.40.2", features = ["functions", "bundled"] }
+serde_json = "1"
+
+[profile.dev]
+debug = 0
